@@ -1,0 +1,1 @@
+Aplikasi YATIS atau Pembayaran Praktis berbasis WEB, menggunakan database XAMPP bernama "tubesimpal" terdapat 2 otoritas yaitu SISWA dan ADMIN
