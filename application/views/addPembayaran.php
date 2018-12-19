@@ -65,7 +65,7 @@
 
                 <p>
                   <?php echo $nama; ?> - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  <small>Member since Nov. 2018</small>
                 </p>
               </li>
               <!-- Menu Footer-->
@@ -221,7 +221,7 @@
                         <?php }else { ?>
                             <input class="input-xxlarge focused" type="text" readonly value="Siswa Belum Ada ! Silahkan tambahkan siswa Terlebih Dahulu">
                         <?php } ?>
-                                         
+
                   </div>
                 </div>
                 <div class="form-group">
@@ -241,7 +241,7 @@
 					<div class="col-sm-10">
                         <?php if ($total_row > 0) { ?>
                             <select name="b1" class="required">
-							<option value="-"> </option>
+                              <option value="-"> </option>
                                 <?php foreach ($jns1 as $m): ?>
                                     <option value='<?php echo $m->biaya; ?>'><?php echo $m->jenis_pembayaran . " - " . $m->biaya; ?> </option>
                                 <?php endforeach; ?>
@@ -249,7 +249,7 @@
                         <?php }else { ?>
                             <input class="input-xxlarge focused" type="text" readonly value="Jenis Pembayaran Belum Ada ! Silahkan tambahkan Terlebih Dahulu">
                         <?php } ?>
-                                         
+
                   </div>
 				   </div>
                 </div>
@@ -267,11 +267,11 @@
                         <?php }else { ?>
                             <input class="input-xxlarge focused" type="text" readonly value="Jenis Pembayaran Belum Ada ! Silahkan tambahkan Terlebih Dahulu">
                         <?php } ?>
-                                         
+
                   </div>
 				   </div>
                 </div>
-                
+
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
