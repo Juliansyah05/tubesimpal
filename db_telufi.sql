@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.2
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2016 at 06:33 PM
--- Server version: 10.1.9-MariaDB
--- PHP Version: 5.6.15
+-- Waktu pembuatan: 08 Des 2018 pada 09.58
+-- Versi server: 10.1.34-MariaDB
+-- Versi PHP: 5.6.37
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_telufi`
+-- Database: `tubesimpal`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_admin`
+-- Struktur dari tabel `t_admin`
 --
 
 CREATE TABLE `t_admin` (
@@ -36,7 +38,7 @@ CREATE TABLE `t_admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_admin`
+-- Dumping data untuk tabel `t_admin`
 --
 
 INSERT INTO `t_admin` (`username`, `nama`, `password`, `no_hp`, `email`, `status`) VALUES
@@ -49,7 +51,7 @@ INSERT INTO `t_admin` (`username`, `nama`, `password`, `no_hp`, `email`, `status
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_detil_lpbulananpmb`
+-- Struktur dari tabel `t_detil_lpbulananpmb`
 --
 
 CREATE TABLE `t_detil_lpbulananpmb` (
@@ -61,7 +63,7 @@ CREATE TABLE `t_detil_lpbulananpmb` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_detil_lpbulananpms`
+-- Struktur dari tabel `t_detil_lpbulananpms`
 --
 
 CREATE TABLE `t_detil_lpbulananpms` (
@@ -73,7 +75,7 @@ CREATE TABLE `t_detil_lpbulananpms` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_detil_lpbulananpng`
+-- Struktur dari tabel `t_detil_lpbulananpng`
 --
 
 CREATE TABLE `t_detil_lpbulananpng` (
@@ -85,7 +87,7 @@ CREATE TABLE `t_detil_lpbulananpng` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_detil_pembayaran`
+-- Struktur dari tabel `t_detil_pembayaran`
 --
 
 CREATE TABLE `t_detil_pembayaran` (
@@ -95,7 +97,7 @@ CREATE TABLE `t_detil_pembayaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_detil_pembayaran`
+-- Dumping data untuk tabel `t_detil_pembayaran`
 --
 
 INSERT INTO `t_detil_pembayaran` (`nomor`, `id_pembayaran`, `id_jenis_pembayaran`) VALUES
@@ -105,12 +107,14 @@ INSERT INTO `t_detil_pembayaran` (`nomor`, `id_pembayaran`, `id_jenis_pembayaran
 (5, 'PMH013', 'TMDKIF'),
 (6, 'PMH015', 'BPPIF'),
 (7, 'PMH015', 'TMDKIF'),
-(9, 'PMH015', 'ASRTRA');
+(9, 'PMH015', 'ASRTRA'),
+(10, '123124', 'SPP'),
+(11, '123124', 'UGDG');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_detil_pembukuan`
+-- Struktur dari tabel `t_detil_pembukuan`
 --
 
 CREATE TABLE `t_detil_pembukuan` (
@@ -122,7 +126,7 @@ CREATE TABLE `t_detil_pembukuan` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_jenis_pembayaran`
+-- Struktur dari tabel `t_jenis_pembayaran`
 --
 
 CREATE TABLE `t_jenis_pembayaran` (
@@ -133,19 +137,21 @@ CREATE TABLE `t_jenis_pembayaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_jenis_pembayaran`
+-- Dumping data untuk tabel `t_jenis_pembayaran`
 --
 
 INSERT INTO `t_jenis_pembayaran` (`id_jenis_pembayaran`, `jenis_pembayaran`, `fakultas`, `biaya`) VALUES
 ('ASRTRA', 'Asrama Putra Telkom', 'FIF', 3000000),
 ('ASRTRI', 'Asrama Putri Telkom', 'FIF', 2800000),
 ('BPPIF', 'BPP S1 Teknik Informatika', 'FIF', 7500000),
-('TMDKIF', 'Telkomedik', 'FIF', 150000);
+('SPP', 'SPP Telkom University', 'FIF', 7500000),
+('TMDKIF', 'Telkomedik', 'FIF', 150000),
+('UGDG', 'Uang Pembangunan Telkom University', 'FIF', 5000000);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_laporanbulanan`
+-- Struktur dari tabel `t_laporanbulanan`
 --
 
 CREATE TABLE `t_laporanbulanan` (
@@ -157,7 +163,7 @@ CREATE TABLE `t_laporanbulanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_laporanbulanan`
+-- Dumping data untuk tabel `t_laporanbulanan`
 --
 
 INSERT INTO `t_laporanbulanan` (`id_laporanbulanan`, `total_pemasukan`, `total_pengeluaran`, `bulan`, `total_bulanan`) VALUES
@@ -166,7 +172,7 @@ INSERT INTO `t_laporanbulanan` (`id_laporanbulanan`, `total_pemasukan`, `total_p
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_mahasiswa`
+-- Struktur dari tabel `t_mahasiswa`
 --
 
 CREATE TABLE `t_mahasiswa` (
@@ -181,7 +187,7 @@ CREATE TABLE `t_mahasiswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_mahasiswa`
+-- Dumping data untuk tabel `t_mahasiswa`
 --
 
 INSERT INTO `t_mahasiswa` (`nim`, `nama`, `jurusan`, `fakultas`, `angkatan`, `username`, `password`, `status`) VALUES
@@ -192,7 +198,7 @@ INSERT INTO `t_mahasiswa` (`nim`, `nama`, `jurusan`, `fakultas`, `angkatan`, `us
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_pemasukaninstitusi`
+-- Struktur dari tabel `t_pemasukaninstitusi`
 --
 
 CREATE TABLE `t_pemasukaninstitusi` (
@@ -204,7 +210,7 @@ CREATE TABLE `t_pemasukaninstitusi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_pemasukaninstitusi`
+-- Dumping data untuk tabel `t_pemasukaninstitusi`
 --
 
 INSERT INTO `t_pemasukaninstitusi` (`id_pemasukan`, `perihal`, `tanggal`, `jumlah`, `pemberi`) VALUES
@@ -216,7 +222,7 @@ INSERT INTO `t_pemasukaninstitusi` (`id_pemasukan`, `perihal`, `tanggal`, `jumla
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_pembayaranmhs`
+-- Struktur dari tabel `t_pembayaranmhs`
 --
 
 CREATE TABLE `t_pembayaranmhs` (
@@ -228,10 +234,12 @@ CREATE TABLE `t_pembayaranmhs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_pembayaranmhs`
+-- Dumping data untuk tabel `t_pembayaranmhs`
 --
 
 INSERT INTO `t_pembayaranmhs` (`id_pembayaran`, `nim`, `jumlah`, `tanggal`, `status`) VALUES
+('123124', '1301140263', 12500000, '2018-12-08', 'not yet'),
+('124124124', '1301140263', 0, '2018-11-30', 'not yet'),
 ('PMH012', '1301144243', 7650000, '2016-07-15', 'VALIDATED'),
 ('PMH013', '1301144233', 7650000, '2016-07-11', 'VALIDATED'),
 ('PMH015', '1301140263', 10650000, '2016-07-02', 'VALIDATED');
@@ -239,7 +247,7 @@ INSERT INTO `t_pembayaranmhs` (`id_pembayaran`, `nim`, `jumlah`, `tanggal`, `sta
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_pembukuan`
+-- Struktur dari tabel `t_pembukuan`
 --
 
 CREATE TABLE `t_pembukuan` (
@@ -253,7 +261,7 @@ CREATE TABLE `t_pembukuan` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_pengeluaran`
+-- Struktur dari tabel `t_pengeluaran`
 --
 
 CREATE TABLE `t_pengeluaran` (
@@ -265,7 +273,7 @@ CREATE TABLE `t_pengeluaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_pengeluaran`
+-- Dumping data untuk tabel `t_pengeluaran`
 --
 
 INSERT INTO `t_pengeluaran` (`id_pengeluaran`, `perihal`, `tanggal`, `jumlah`, `pengaju`) VALUES
@@ -277,13 +285,13 @@ INSERT INTO `t_pengeluaran` (`id_pengeluaran`, `perihal`, `tanggal`, `jumlah`, `
 --
 
 --
--- Indexes for table `t_admin`
+-- Indeks untuk tabel `t_admin`
 --
 ALTER TABLE `t_admin`
   ADD PRIMARY KEY (`username`);
 
 --
--- Indexes for table `t_detil_lpbulananpmb`
+-- Indeks untuk tabel `t_detil_lpbulananpmb`
 --
 ALTER TABLE `t_detil_lpbulananpmb`
   ADD PRIMARY KEY (`nomor`),
@@ -291,7 +299,7 @@ ALTER TABLE `t_detil_lpbulananpmb`
   ADD KEY `fk_pembayaran` (`id_pembayaran`);
 
 --
--- Indexes for table `t_detil_lpbulananpms`
+-- Indeks untuk tabel `t_detil_lpbulananpms`
 --
 ALTER TABLE `t_detil_lpbulananpms`
   ADD PRIMARY KEY (`nomor`),
@@ -299,7 +307,7 @@ ALTER TABLE `t_detil_lpbulananpms`
   ADD KEY `id_pemasukan` (`id_pemasukan`);
 
 --
--- Indexes for table `t_detil_lpbulananpng`
+-- Indeks untuk tabel `t_detil_lpbulananpng`
 --
 ALTER TABLE `t_detil_lpbulananpng`
   ADD PRIMARY KEY (`nomor`),
@@ -307,7 +315,7 @@ ALTER TABLE `t_detil_lpbulananpng`
   ADD KEY `id_pengeluaran` (`id_pengeluaran`);
 
 --
--- Indexes for table `t_detil_pembayaran`
+-- Indeks untuk tabel `t_detil_pembayaran`
 --
 ALTER TABLE `t_detil_pembayaran`
   ADD PRIMARY KEY (`nomor`),
@@ -315,7 +323,7 @@ ALTER TABLE `t_detil_pembayaran`
   ADD KEY `fk_jenispembayaran` (`id_jenis_pembayaran`);
 
 --
--- Indexes for table `t_detil_pembukuan`
+-- Indeks untuk tabel `t_detil_pembukuan`
 --
 ALTER TABLE `t_detil_pembukuan`
   ADD PRIMARY KEY (`nomor`),
@@ -323,117 +331,122 @@ ALTER TABLE `t_detil_pembukuan`
   ADD KEY `fk_bulanan` (`id_laporanbulanan`);
 
 --
--- Indexes for table `t_jenis_pembayaran`
+-- Indeks untuk tabel `t_jenis_pembayaran`
 --
 ALTER TABLE `t_jenis_pembayaran`
   ADD PRIMARY KEY (`id_jenis_pembayaran`),
   ADD KEY `jenis_pembayaran` (`jenis_pembayaran`);
 
 --
--- Indexes for table `t_laporanbulanan`
+-- Indeks untuk tabel `t_laporanbulanan`
 --
 ALTER TABLE `t_laporanbulanan`
   ADD PRIMARY KEY (`id_laporanbulanan`);
 
 --
--- Indexes for table `t_mahasiswa`
+-- Indeks untuk tabel `t_mahasiswa`
 --
 ALTER TABLE `t_mahasiswa`
   ADD PRIMARY KEY (`nim`);
 
 --
--- Indexes for table `t_pemasukaninstitusi`
+-- Indeks untuk tabel `t_pemasukaninstitusi`
 --
 ALTER TABLE `t_pemasukaninstitusi`
   ADD PRIMARY KEY (`id_pemasukan`);
 
 --
--- Indexes for table `t_pembayaranmhs`
+-- Indeks untuk tabel `t_pembayaranmhs`
 --
 ALTER TABLE `t_pembayaranmhs`
   ADD PRIMARY KEY (`id_pembayaran`),
   ADD KEY `fk_nim` (`nim`);
 
 --
--- Indexes for table `t_pembukuan`
+-- Indeks untuk tabel `t_pembukuan`
 --
 ALTER TABLE `t_pembukuan`
   ADD PRIMARY KEY (`id_pembukuan`);
 
 --
--- Indexes for table `t_pengeluaran`
+-- Indeks untuk tabel `t_pengeluaran`
 --
 ALTER TABLE `t_pengeluaran`
   ADD PRIMARY KEY (`id_pengeluaran`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `t_detil_lpbulananpmb`
+-- AUTO_INCREMENT untuk tabel `t_detil_lpbulananpmb`
 --
 ALTER TABLE `t_detil_lpbulananpmb`
   MODIFY `nomor` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT for table `t_detil_lpbulananpms`
+-- AUTO_INCREMENT untuk tabel `t_detil_lpbulananpms`
 --
 ALTER TABLE `t_detil_lpbulananpms`
   MODIFY `nomor` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT for table `t_detil_lpbulananpng`
+-- AUTO_INCREMENT untuk tabel `t_detil_lpbulananpng`
 --
 ALTER TABLE `t_detil_lpbulananpng`
   MODIFY `nomor` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT for table `t_detil_pembayaran`
+-- AUTO_INCREMENT untuk tabel `t_detil_pembayaran`
 --
 ALTER TABLE `t_detil_pembayaran`
-  MODIFY `nomor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `nomor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `t_detil_lpbulananpmb`
+-- Ketidakleluasaan untuk tabel `t_detil_lpbulananpmb`
 --
 ALTER TABLE `t_detil_lpbulananpmb`
   ADD CONSTRAINT `fk_laporan` FOREIGN KEY (`id_laporanbulanan`) REFERENCES `t_laporanbulanan` (`id_laporanbulanan`),
   ADD CONSTRAINT `fk_pembayaran` FOREIGN KEY (`id_pembayaran`) REFERENCES `t_pembayaranmhs` (`id_pembayaran`);
 
 --
--- Constraints for table `t_detil_lpbulananpms`
+-- Ketidakleluasaan untuk tabel `t_detil_lpbulananpms`
 --
 ALTER TABLE `t_detil_lpbulananpms`
   ADD CONSTRAINT `fk_laporan_pms` FOREIGN KEY (`id_laporanbulanan`) REFERENCES `t_laporanbulanan` (`id_laporanbulanan`),
   ADD CONSTRAINT `t_detil_lpbulananpms_ibfk_1` FOREIGN KEY (`id_pemasukan`) REFERENCES `t_pemasukaninstitusi` (`id_pemasukan`);
 
 --
--- Constraints for table `t_detil_lpbulananpng`
+-- Ketidakleluasaan untuk tabel `t_detil_lpbulananpng`
 --
 ALTER TABLE `t_detil_lpbulananpng`
   ADD CONSTRAINT `t_detil_lpbulananpng_ibfk_1` FOREIGN KEY (`id_laporanbulanan`) REFERENCES `t_laporanbulanan` (`id_laporanbulanan`),
   ADD CONSTRAINT `t_detil_lpbulananpng_ibfk_2` FOREIGN KEY (`id_pengeluaran`) REFERENCES `t_pengeluaran` (`id_pengeluaran`);
 
 --
--- Constraints for table `t_detil_pembayaran`
+-- Ketidakleluasaan untuk tabel `t_detil_pembayaran`
 --
 ALTER TABLE `t_detil_pembayaran`
   ADD CONSTRAINT `fk_idpembayaran` FOREIGN KEY (`id_pembayaran`) REFERENCES `t_pembayaranmhs` (`id_pembayaran`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_jenispembayaran` FOREIGN KEY (`id_jenis_pembayaran`) REFERENCES `t_jenis_pembayaran` (`id_jenis_pembayaran`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `t_detil_pembukuan`
+-- Ketidakleluasaan untuk tabel `t_detil_pembukuan`
 --
 ALTER TABLE `t_detil_pembukuan`
   ADD CONSTRAINT `fk_bulanan` FOREIGN KEY (`id_laporanbulanan`) REFERENCES `t_laporanbulanan` (`id_laporanbulanan`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_pembukuan` FOREIGN KEY (`id_pembukuan`) REFERENCES `t_pembukuan` (`id_pembukuan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `t_pembayaranmhs`
+-- Ketidakleluasaan untuk tabel `t_pembayaranmhs`
 --
 ALTER TABLE `t_pembayaranmhs`
   ADD CONSTRAINT `fk_nim` FOREIGN KEY (`nim`) REFERENCES `t_mahasiswa` (`nim`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
