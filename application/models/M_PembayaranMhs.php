@@ -66,14 +66,14 @@ function countAll($table) {
     $where = $where = array(
 			'id_jenis_pembayaran'=> 'SPP'
 		);
-	
+
     return $this->db->get_where('t_jenis_pembayaran',$where)->result();
  }
  function getjns2(){
     $where = $where = array(
 			'id_jenis_pembayaran'=> 'UGDG'
 		);
-	
+
     return $this->db->get_where('t_jenis_pembayaran',$where)->result();
  }
 
